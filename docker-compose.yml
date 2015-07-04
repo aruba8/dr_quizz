@@ -1,0 +1,14 @@
+db:
+  image: postgres
+  ports:
+    - "5432"
+web:
+  build: .
+  command: python application/run.py runserver -h 0.0.0.0
+
+  volumes:
+    - .:/application
+  ports:
+    - "5000:5000"
+  links:
+    - db
