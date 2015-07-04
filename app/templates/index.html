@@ -47,10 +47,12 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8">
-                <div class="questions" ng-repeat="question in questions" ng-if="questions">
-                    <div class="panel panel-default">
+                <div class="questions" ng-repeat="question in questions" ng-if="questionsToShow">
+                    <div ng-class="{ 'panel panel-default' : question.correct === None,
+                                     'panel panel-success' : question.correct === true,
+                                     'panel panel-danger' : question.correct === false,}">
                         <div class="panel-heading">
-                            <h3>Question {{ ($index + 1) }}</h3>
+                            <h3>Question {{ $index+1}}</h3>
                         </div>
                         <div class="panel-body">
                             <div class="question">
@@ -63,7 +65,8 @@
                                     <li ng-repeat="answer in question.answers">
                                         <input ng-disabled="inputDisabled" type="radio" name="answer{{ answer.id }}"
                                                ng-model="question.answer" value="{{ answer.id }}"> {{ answer.answer }}
-                                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                        <span ng-show="inputDisabled && answer.id == question.correct_answer"
+                                              class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                                     </li>
                                 </ul>
                             </div>

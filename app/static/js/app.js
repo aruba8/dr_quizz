@@ -27,26 +27,28 @@
         function reset() {
             $scope.questions = null;
             $scope.inputDisabled = false;
-
         }
 
         this.getQuestions = function (numberOfQuestions) {
             $scope.restartQuiz = true;
             $scope.checkAllowed = true;
             $http
-                .post('/questions', {number: numberOfQuestions})
+                .get('/questions/'+numberOfQuestions)
                 .success(function (data) {
                     reset();
-                    $scope.questions = data;
+                    var jsonData = angular.fromJson(data);
+                    $scope.questions = jsonData.questions;
+                    $scope.questionsToShow = true;
                 });
         };
 
         this.check = function () {
-            $log.debug($scope.questions);
             $scope.inputDisabled = true;
             var questions = $scope.questions;
-            $http.post('/check', {result: questions}).success(function (data) {
-                $log.debug(data);
+            $http.post('/check', {result: questions})
+                .success(function (data) {
+                    var jsonData = angular.fromJson(data);
+                    $scope.questions = jsonData.result;
             });
 
         }
