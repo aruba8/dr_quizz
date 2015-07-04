@@ -40,6 +40,9 @@
                         <input type="button" class="btn btn-default" ng-show="restartQuiz" value="Restart Quiz"
                                ng-click="formCtrl.getQuestions(numberOfQuestions)">
                     </div>
+                    <div class="form-group">
+                        <span class="answer_count"> Result: {{ numberOfCorrectAnswers }}/{{ numberOfQuestions }} </span>
+                    </div>
                 </fieldset>
             </form>
         </div>
@@ -50,7 +53,7 @@
                 <div class="questions" ng-repeat="question in questions" ng-if="questionsToShow">
                     <div ng-class="{ 'panel panel-default' : question.correct === None,
                                      'panel panel-success' : question.correct === true,
-                                     'panel panel-danger' : question.correct === false,}">
+                                     'panel panel-danger' : question.correct === false}">
                         <div class="panel-heading">
                             <h3>Question {{ $index+1}}</h3>
                         </div>
@@ -59,12 +62,15 @@
                                 <p>{{ question.question }}</p>
 
                                 <div class="sign-img">
-                                    <img ng-src="static/images/signs/{{ question.sign }}">
+                                    <img ng-if="question.signed" class="img-thumbnail"
+                                         ng-src="static/images/signs/{{ question.sign }}">
                                 </div>
                                 <ul>
                                     <li ng-repeat="answer in question.answers">
-                                        <input ng-disabled="inputDisabled" type="radio" name="answer{{ answer.id }}"
-                                               ng-model="question.answer" value="{{ answer.id }}"> {{ answer.answer }}
+                                        <input ng-disabled="inputDisabled" type="radio"
+                                               name="answer{{ answer.id }}"
+                                               ng-model="question.answer"
+                                               value="{{ answer.id }}"> <span class="answer">{{ answer.answer }}</span>
                                         <span ng-show="inputDisabled && answer.id == question.correct_answer"
                                               class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                                     </li>
@@ -76,8 +82,8 @@
                     </div>
                 </div>
                 <div class="buttons form-inline">
-                    <input class="btn btn-default form-control" ng-show="checkAllowed" value="Check answers"
-                           ng-click="formCtrl.check()">
+                    <a class="btn btn-default form-control" ng-show="checkAllowed" ng-disabled="checkDisabled"
+                           ng-click="formCtrl.check()">Check answers</a>
                 </div>
             </div>
         </div>

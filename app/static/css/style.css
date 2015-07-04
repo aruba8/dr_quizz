@@ -11,3 +11,17 @@ li {
     list-style: none;
 }
 
+.sign-img {
+    margin-bottom: 25px;
+    margin-right: 25px;
+    float: right;
+}
+
+.answer {
+    padding-left: 5px;
+}
+
+.answer_count {
+    margin-left: 45px;
+    font-weight: bold;
+}

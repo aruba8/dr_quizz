@@ -47,8 +47,8 @@ class QuestionList(Resource):
         usual_count = Question.query.filter_by(signed=False).count()
         signed_questions = Question.query.filter_by(signed=True).all()
         usual_questions = Question.query.filter_by(signed=False).all()
-        random_numbers_signed = [random.randint(1, signed_count) for r in range(signed_qty)]
-        random_numbers_usual = [random.randint(1, usual_count) for r in range(usual_qty)]
+        random_numbers_signed = random.sample(range(1, signed_count+1), signed_qty)
+        random_numbers_usual = random.sample(range(1, usual_count+1), usual_qty)
         for number in random_numbers_usual:
             questions.append(usual_questions[number - 1])
         for number in random_numbers_signed:

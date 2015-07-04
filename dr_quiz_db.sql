@@ -976,6 +976,8 @@ COPY answer (id, question_id, answer, is_correct_answer) FROM stdin;
 828	207	all of the above	t
 832	208	continue driving to the next exit	t
 836	209	traffic moving in the same direction cannot change lanes	t
+1048	262	increase to four seconds	f
+1049	263	traffic signs	f
 840	210	slow down and look for a train. You may proceed if the train is further than 30 metres away.	f
 841	211	traffic must turn right	f
 843	211	traffic move right	f
@@ -1119,6 +1121,264 @@ COPY answer (id, question_id, answer, is_correct_answer) FROM stdin;
 969	243	no passing is allowed, but you may cross these lines to make a left turn into or from an alley, private road or a driveway	t
 975	244	speed and existing conditions	t
 980	245	playground ahead	t
+981	246	slam on your brakes	f
+982	246	slam on your brakes so you lock-up all the wheels	f
+984	246	pump the brake pedal	f
+985	247	only pedestrians may proceed in the direction of the arrow	f
+986	247	stop and proceed in the direction of the arrow	f
+987	247	wait for the green light before driving in the direction of the arrow	f
+983	246	apply hard steady pressure without locking up the wheels (threshold braking)	t
+988	247	drive with caution in the direction of the arrow	t
+989	248	crossroad ahead	f
+991	248	gravel road ahead	f
+992	248	right or left turn ahead	f
+994	249	slow down	f
+995	249	yield ahead	f
+996	249	danger ahead	f
+990	248	hidden intersection ahead	t
+993	249	stop ahead	t
+997	250	tap the horn to notify other drivers	f
+998	250	turn on the signal closest to the curb	f
+1000	250	just pull out of the parking spot	f
+1001	251	a double solid line	f
+1002	251	a solid line	f
+1004	251	a solid and broken line if the solid line is on your side of the highway	f
+1005	252	the parking spot is not being used	f
+1007	252	it is winter	f
+1008	252	it's after 9:30 p.m. and before 9:30 a.m.	f
+999	250	turn on the signal furthest from the curb	t
+1003	251	a broken line	t
+1006	252	you are disabled or you are transporting a disabled person and have a valid disabled parking permit displayed in your vehicle	t
+1009	253	delays reaction time	f
+1010	253	distorts vision	f
+1011	253	impairs judgement	f
+1014	254	honk your horn	f
+1015	254	slam on your brakes	f
+1016	254	assume that the driver will wait till you pass before opening his door	f
+1017	255	turned straight ahead	f
+1018	255	turned away from the curb	f
+1020	255	it doesn't matter in which position	f
+1021	256	keep foot off brake and coast to a stop	f
+1023	256	brake hard and try to prevent the vehicle from going into a skid	f
+1024	256	pump brakes forcefully	f
+1012	253	all of the above	t
+1013	254	assume that the driver may open the door as you approach	t
+1019	255	turned toward the curb	t
+1022	256	apply steady pressure without locking up the wheels	t
+1025	257	only in city traffic	f
+1026	257	if you slow down and no traffic, pedestrian, or sign prohibits such a turn	f
+1028	257	at all intersections with traffic lights	f
+1029	258	9 metres	f
+1030	258	3 metres	f
+1031	258	30 metres	f
+1033	259	15 per cent	f
+1035	259	35 per cent	f
+1036	259	5 per cent	f
+1037	260	intersection ahead	f
+1038	260	hidden intersection ahead	f
+1040	260	busy intersection ahead	f
+1042	261	hidden intersection	f
+1043	261	crossroad ahead	f
+1044	261	school bus crossing	f
+1027	257	if you stop, and no traffic, pedestrian, or sign prohibits such a turn	t
+1032	258	15 metres	t
+1034	259	25 per cent	t
+1039	260	traffic signals ahead	t
+1041	261	angled railway crossing	t
+1045	262	remain the same	f
+1047	262	decrease	f
+1050	263	safe driving practices	f
+1051	263	vehicle repairs	f
+1053	264	rough road	f
+1054	264	slippery when wet	f
+1055	264	ice covered	f
+1046	262	increase according to the severity of the conditions	t
+1052	263	both a and b	t
+1056	264	bump ahead	t
+1057	265	motor vehicles	f
+1058	265	snowmobiles	f
+1059	265	dirt bikes and all-terrain vehicles	f
+1061	266	any lane as long as you use your signal	f
+1062	266	centre lane	f
+1064	266	any lane as long as you honk your horn	f
+1060	265	all of the above	t
+1063	266	lane closest to the left curb	t
+1065	267	the tire will last longer	f
+1067	267	an increase in road handling	f
+1068	267	an increase in gasoline mileage	f
+1069	268	brake hard and flash your headlights. If speed can be reduced before the collision, the impact will be less severe	f
+1070	268	head for the shoulder on the right-hand side of the road and sound your horn	f
+1071	268	drive into the ditch if necessary and head for something that is capable of energy absorption to reduce the force on impact	f
+1066	267	the tire could overheat and cause a blowout	t
+1072	268	all of the above	t
+1073	269	a red flag clearly visible at the end of the load	f
+1075	269	a red flag	f
+1076	269	a red reflector or light	f
+1074	269	a red flag clearly visible at the end of the load and a red light or reflector at night	t
+1077	270	an immediate driver's licence suspension	f
+1078	270	a driver's licence reinstatement charge	f
+1079	270	a mandatory Impaired Driver Assessment if two or more suspensions within a 10-year period	f
+1081	271	when visibility is reduced to 60 metres	f
+1082	271	one hour before sunset to one hour after sunrise	f
+1083	271	½ hour before sunset to ½ hour after sunrise	f
+1086	272	turn the wheels straight ahead and set your parking brake	f
+1087	272	put the parking brake on only	f
+1088	272	turn the wheels away from the curb or edge of the highway and set your parking brake	f
+1080	270	all of the above	t
+1084	271	both a and c	t
+1085	272	turn the wheels toward the curb or edge of the highway and set your parking brake	t
+1089	273	the vehicle on the left	f
+1091	273	the vehicle with the greatest speed	f
+1092	273	the vehicle that enters the intersection first	f
+1094	274	60 km/h	f
+1095	274	70 km/h	f
+1096	274	80 km/h	f
+1097	275	lane ends ahead	f
+1098	275	two-way traffic ahead	f
+1099	275	one-way traffic ahead	f
+1090	273	the vehicle on the right	t
+1093	274	50 km/h	t
+1100	275	traffic island ahead	t
+1101	276	slow down as you approach the area	f
+1102	276	allow at least twice the following distance behind other vehicles	f
+1103	276	know that rain will make the area extremely slippery	f
+1105	277	an outside rear-view mirror installed on the driver's side of your vehicle	f
+1106	277	an outside rear-view mirror installed on the side of your vehicle opposite the driver	f
+1108	277	a person in the vehicle to clear you for right turns	f
+1104	276	all of the above	t
+1107	277	outside mirrors on the right and left sides	t
+1110	278	a rear-facing infant car seat	f
+1111	278	a forward-facing child car seat	f
+1112	278	a secured seat belt	f
+1113	279	take your foot off the accelerator or the brake	f
+1114	279	shift to neutral (or depress the clutch)	f
+1115	279	look and steer in the direction you would like to go	f
+1117	280	playground corridor	f
+1119	280	school ground corridor	f
+1120	280	school crossing	f
+1109	278	a booster seat	t
+1116	279	all of the above	t
+1118	280	pedestrian corridor	t
+1121	281	more rapidly just after eating	f
+1123	281	the same way at all times	f
+1124	281	only if you have more than two drinks	f
+1125	282	never enter the intersection if it is blocked, or if the traffic is backed up in the lane you wish to enter	f
+1126	282	enter the intersection to the right of the directional dividing line	f
+1127	282	if unable to complete the left turn because of oncoming traffic, establish yourself just before the centre of the intersection and when it is safe, proceed to complete your turn	f
+1130	283	wait until the vehicle starts to sink	f
+1131	283	wait in the vehicle for emergency assistance	f
+1132	283	none of the above	f
+1122	281	more rapidly on an empty stomach	t
+1128	282	all of the above	t
+1129	283	get all the occupants out while the vehicle floats	t
+1134	284	used as a guide only	f
+1135	284	followed only when there is other traffic	f
+1136	284	followed only when a police officer is present	f
+1133	284	obeyed always	t
+1137	285	pedestrians have the right-of-way at unmarked crosswalks	f
+1138	285	pedestrians have the right-of-way at marked crosswalks, which include crosswalks at intersections controlled by traffic lights, school crosswalks and pedestrian crosswalks	f
+1139	285	unmarked crosswalks are extensions of sidewalks. No markings or signs are required	f
+1141	286	median ahead	f
+1142	286	entering a town, city or village	f
+1144	286	road ends ahead	f
+1140	285	all of the above	t
+1143	286	divided highway begins ahead	t
+1145	287	flashing red light	f
+1146	287	stop sign	f
+1148	287	flashing green light	f
+1149	288	150 metres	f
+1150	288	100 metres	f
+1152	288	120 metres	f
+1154	289	parking and high beam	f
+1155	289	parking lights	f
+1156	289	high beam	f
+1157	290	all traffic must slow down	f
+1158	290	exit lane	f
+1160	290	buses may turn left	f
+1147	287	yield sign	t
+1151	288	60 metres	t
+1153	289	low beam	t
+1159	290	all traffic must turn left	t
+1162	291	let oncoming traffic watch out for themselves	f
+1163	291	let the police handle everything	f
+1164	291	get off the roadway	f
+1161	291	have someone warn approaching traffic	t
+1165	292	is alright if you check the rear view mirror	f
+1166	292	is a bad driving habit	f
+1167	292	may contribute to a collision	f
+1168	292	both b and c	t
+1169	293	drive close to the vehicle ahead to keep other vehicles from cutting in	f
+1170	293	drive close to the vehicle ahead being ready for a sudden stop	f
+1172	293	both a and b	f
+1173	294	accelerate to make the change	f
+1175	294	decelerate and adjust your speed as required	f
+1176	294	steer into the lane you wish to change to	f
+1177	295	that the roadway ends	f
+1178	295	that you must stop for cross traffic	f
+1180	295	both b and c	f
+1181	296	looking in both inside and outside mirrors	f
+1183	296	looking in the right outside mirror	f
+1184	296	looking in the left outside mirror	f
+1171	293	keep at least a four-second interval between you and the vehicle ahead	t
+1174	294	check blind spots and adjust your speed as required	t
+1179	295	that you may proceed only with caution	t
+1182	296	looking over your shoulder	t
+1185	297	give the motorcyclist the right hand part of his traffic lane	f
+1187	297	pull to the left just far enough to miss the motorcyclist	f
+1188	297	stay one metre away from the motorcycle	f
+1189	298	disregard the signal if there are other lanes available for the emergency vehicle	f
+1190	298	stop as quickly as you can	f
+1192	298	increase your speed to provide a clear path for the emergency vehicle	f
+1186	297	give the motorcycle the entire traffic lane as if it were a car	t
+1191	298	slow down, move your vehicle to provide a clear path for the emergency vehicle and stop	t
+1193	299	at any time	f
+1195	299	only on private property	f
+1196	299	while stopped and leaving the vehicle for a very short period of time	f
+1194	299	only for reasons such as warming a vehicle and defrosting the windshield	t
+1197	300	stop	f
+1198	300	slow down, stop only if necessary	f
+1200	300	speed up and clear the intersection	f
+1201	301	350 metres	f
+1203	301	150 metres	f
+1204	301	200 metres	f
+1199	300	stop, wait your turn and go when safe	t
+1202	301	450 metres	t
+1205	302	move the injured person away from the scene immediately	f
+1206	302	always leave the injured person where he or she is	f
+1208	302	stay away from the injured person	f
+1207	302	do not move the injured person unnecessarily, keep the injured person warm, and administer first aid if possible	t
+1209	303	left arm positioned outside the window, straight out	f
+1211	303	left arm positioned downward outside, the window at a 90° angle	f
+1212	303	right arm positioned out to the right	f
+1210	303	left arm positioned outside the left window, upward at a 90° angle	t
+1213	304	a speed limit is only in effect if the school grounds are occupied	f
+1214	304	the speed limit is 30 km/h in a school zone	f
+1216	304	passing is not allowed at any time	f
+1215	304	it is illegal to pass another vehicle in a school area, within 15 minutes of either the opening or closing of classes or at any time when children are on the school grounds or near the road	t
+1217	305	unnecessarily abuse the vehicle's charging system	f
+1218	305	unnecessarily abuse the vehicle's electrical system	f
+1220	305	none of the above	f
+1219	305	significantly reduce the chances of an accident because your vehicle is easier to see	t
+1221	306	are not important	f
+1223	306	have no effect on your driving ability	f
+1224	306	both a and c	f
+1222	306	are very important safety factors	t
+1225	307	be aware of developing traffic situations around you	f
+1226	307	look well ahead of your vehicle and maintain a proper following distance	f
+1227	307	ignore other drivers	f
+1229	308	curve in the road	f
+1231	308	right turn ahead	f
+1232	308	all traffic move right	f
+1228	307	both a and b	t
+1230	308	right curve ahead	t
+1233	309	that the new 60-km/h-speed zone begins at this sign	f
+1235	309	that you have plenty of time to slow down before the speed zone	f
+1236	309	that the sign is only intended for the local residents	f
+1234	309	that the new 60-km/h-speed zone begins at the 'Maximum speed' sign	t
+1237	310	drive slowly so approaching vehicles and pedestrians can get out of your way	f
+1238	310	honk the horn so approaching vehicles and pedestrians can allow you room	f
+1240	310	disregard pedestrians if there is no sidewalk	f
+1239	310	stop and yield right-of-way to all pedestrians and traffic	t
 \.
 
 
@@ -1126,7 +1386,7 @@ COPY answer (id, question_id, answer, is_correct_answer) FROM stdin;
 -- Name: answer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: dr_quiz_db
 --
 
-SELECT pg_catalog.setval('answer_id_seq', 980, true);
+SELECT pg_catalog.setval('answer_id_seq', 1240, true);
 
 
 --
@@ -1206,6 +1466,7 @@ COPY question (id, question, real_id, signed, sign_name) FROM stdin;
 70	Information you need to drive safely is gained primarily by:	106	f	\N
 71	A Class ______ licence permits the holder to operate a motorcycle.	135	f	\N
 209	White solid pavement lines indicate:	307	f	\N
+281	Alcoholic beverages will affect you:	82	f	\N
 72	When parking a vehicle uphill, vehicles with automatic transmissions should be placed in the 'Park' position, standard transmissions should be placed in low or reverse and the wheels should be:	184	f	\N
 73	Under normal conditions and with properly adjusted high beams, you can see:	240	f	\N
 74	You wish to enter an expressway. The proper procedure is:	245	f	\N
@@ -1278,6 +1539,7 @@ COPY question (id, question, real_id, signed, sign_name) FROM stdin;
 141	This sign means:	56	t	RoadSign_56.gif
 142	This sign means:	77	t	RoadSign_77.gif
 143	Your ability to drive may also become impaired by which of the following?	87	f	\N
+280	This sign means:	75	t	RoadSign_75.gif
 144	If your blood alcohol level is over .08 or you refuse to provide a breath or blood sample to police, you may face a variety of consequences. Which of the following consequences is correct?	90	f	\N
 145	You are driving behind another vehicle. You notice that the driver is driving with one hand, talking to a passenger. You should know that:	101	f	\N
 146	Defensive driving:	104	f	\N
@@ -1379,6 +1641,69 @@ COPY question (id, question, real_id, signed, sign_name) FROM stdin;
 243	Two solid-yellow lines dividing a highway mean:	161	f	\N
 244	The distance you follow behind another vehicle should be determined by:	271	f	\N
 245	This sign means:	25	t	RoadSign_25.gif
+246	To brake in an emergency situation in a vehicle without ABS (antilock) brakes, you should:	252	f	\N
+247	When a green arrow is shown with a red traffic light it means:	291	f	\N
+248	This sign means:	20	t	RoadSign_20.gif
+249	This sign means:	23	t	RoadSign_23.gif
+250	Before starting out from a parked position on a street, the first thing a driver should do is:	141	f	\N
+251	Which of the following road markings allow passing on a highway?	156	f	\N
+252	It is illegal to park in a space designated for disabled persons unless:	212	f	\N
+253	Alcohol is a drug that quickly affects the body. It:	83	f	\N
+254	When you approach a vehicle that is parked on your right, you should:	122	f	\N
+255	When parking a vehicle downhill, vehicles with automatic transmissions should be placed in the 'Park' position, standard transmissions should be placed in low or reverse and the wheels should be:	185	f	\N
+256	You are driving a vehicle without ABS (antilock) brakes on a slippery road, how should you apply the brakes?	295	f	\N
+257	You may turn right at a red light:	272	f	\N
+258	You are not allowed to park a vehicle within _____________ of a pedestrian corridor.	284	f	\N
+259	Frequent rapid acceleration and hard braking increases fuel consumption by up to:	303	f	\N
+260	This sign means:	24	t	RoadSign_24.gif
+261	This sign means:	31	t	RoadSign_31.gif
+262	As weather conditions change, your following distance should:	99	f	\N
+263	To receive a learner's licence in Manitoba, you must take a knowledge driver's test that will evaluate your understanding of:	128	f	\N
+264	This sign means:	42	t	RoadSign_42.gif
+265	Manitoba's tough laws on drinking and driving apply to which of the following:	88	f	\N
+266	To turn left from a one-way street, which lane should you turn from?	310	f	\N
+267	If you drive your vehicle with an under-inflated tire, what is the most dangerous probable result?	226	f	\N
+268	If a vehicle suddenly approaches from the opposite direction in your lane	257	f	\N
+269	All vehicles that have a load extending 1.0 metre or more past the rear of the vehicle, must have:	262	f	\N
+270	If you operate a vehicle and have a blood alcohol concentration between .05 and .08, you will face a variety of consequences that may include:	89	f	\N
+271	When operating your vehicle, headlights must be switched on:	224	f	\N
+272	Before leaving your car parked downhill, you should:	280	f	\N
+273	You and another vehicle are approaching an intersection that has no traffic signs or signals. Which vehicle has the right of way?	190	f	\N
+274	Unless otherwise posted, the maximum speed limit in urban areas (city or town) of Manitoba is:	218	f	\N
+275	This sign means:	32	t	RoadSign_32.gif
+276	Heavy vehicles have entered the roadway from a muddy area. You should:	126	f	\N
+277	When towing a trailer large enough to obstruct your inside rear-view mirror, you are required to have:	261	f	\N
+278	Once a child exceeds the height and weight limits for a forward-facing car seat, Manitoba law requires them to be in which type of seat until they are at least 145 cm (4' 9"), 36 kg (80 lb.) or nine years old?	115	f	\N
+279	To recover from a skid caused by driving too fast for the conditions, you should:	251	f	\N
+282	When intending to make a left turn at an intersection on a green light:	200	f	\N
+283	If your vehicle plunges into water, you should:	255	f	\N
+284	Traffic signs and pavement markings must be:	148	f	\N
+285	Which of the following is true?	173	f	\N
+286	This sign means:	14	t	RoadSign_14.gif
+287	A flashing yellow signal light means the same as a:	205	f	\N
+288	When you are following a vehicle at night, you are required to dim your headlights at a distance of at least:	223	f	\N
+289	When driving in a heavy fog or a snowstorm, you should use:	279	f	\N
+290	This sign means:	53	t	RoadSign_53.gif
+291	When you are involved in an accident where the accident scene is not readily visible to oncoming traffic, you should:	268	f	\N
+292	Failing to turn your head to check for traffic before changing lanes:	95	f	\N
+293	While driving in rush-hour traffic you should:	97	f	\N
+294	Before changing lanes, check your mirrors for traffic, signal your intention to move and:	142	f	\N
+295	You are approaching a flashing amber traffic control signal at an intersection. This signal means:	211	f	\N
+296	What is the best method to use when checking the blind spot while driving a car?	277	f	\N
+297	When passing a motorcycle you must:	125	f	\N
+298	You are driving on a divided multi-lane highway when you see or hear the signal of an approaching emergency vehicle. You should:	176	f	\N
+299	You may leave a vehicle unattended when the motor is running:	296	f	\N
+300	You are approaching an intersection controlled by four-way stop signs. You should:	170	f	\N
+301	You are driving at night as an oncoming vehicle approaches. Your headlights must be dimmed at a distance of:	222	f	\N
+302	You are involved in an accident and another person is injured. You should:	267	f	\N
+303	If your vehicle's turn signals don't work and you plan on making a right turn, what is the proper hand signal?	144	f	\N
+304	As you enter a school or playground area, you must drive slowly and be prepared to stop. Which statement is true regarding school zones and playgrounds?	175	f	\N
+305	By using your headlights during the daytime, you will:	234	f	\N
+306	While driving, your physical and mental conditions:	108	f	\N
+307	To drive defensively, you should:	105	f	\N
+308	This sign means:	2	t	RoadSign_2.gif
+309	While driving you come upon a sign which reads, 'Maximum speed 60 km/h ahead'. You as a driver should know:	216	f	\N
+310	When entering a street, Provincial Road or Provincial Trunk Highway from a private road, lane, driveway or building, you should:	189	f	\N
 \.
 
 
@@ -1386,7 +1711,7 @@ COPY question (id, question, real_id, signed, sign_name) FROM stdin;
 -- Name: question_id_seq; Type: SEQUENCE SET; Schema: public; Owner: dr_quiz_db
 --
 
-SELECT pg_catalog.setval('question_id_seq', 245, true);
+SELECT pg_catalog.setval('question_id_seq', 310, true);
 
 
 --
