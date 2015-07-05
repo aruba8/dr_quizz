@@ -56,7 +56,7 @@ Content-Type: application/json
 
 to check question you should add field `answer` with value of chosen answer id to every question, and send back post request as :
 
-```
+```JSON
 {
   "result": [
     {
@@ -104,7 +104,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 ```
 
-```
+```JSON
 {
   "result": [
     {
