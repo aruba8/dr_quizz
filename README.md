@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/biomaks/dr_quiz.svg?branch=master)](https://travis-ci.org/biomaks/dr_quiz)
+[![Build Status](https://travis-ci.org/biomaks/dr_quizz.svg?branch=master)](https://travis-ci.org/biomaks/dr_quizz)
 # dr_quizz
 
 ### REST API:
