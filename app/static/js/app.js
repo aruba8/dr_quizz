@@ -31,13 +31,13 @@
             $scope.questions = null;
             $scope.inputDisabled = false;
             $scope.checkDisabled = false;
+            $scope.numberOfCorrectAnswers = 0;
 
         }
 
         this.getQuestions = function (numberOfQuestions) {
             $scope.restartQuiz = true;
             $scope.checkAllowed = true;
-            //$scope.numberOfQuestions = numberOfQuestions;
             $http
                 .get('/questions/' + numberOfQuestions)
                 .success(function (data) {
@@ -61,10 +61,10 @@
 
         };
 
-        $scope.calculateCorrectAnswers = function(questions){
+        $scope.calculateCorrectAnswers = function (questions) {
             var counter = 0;
-            for (var i = 0; i < questions.length; i++){
-                if(questions[i].hasOwnProperty('correct') && questions[i].correct == true){
+            for (var i = 0; i < questions.length; i++) {
+                if (questions[i].hasOwnProperty('correct') && questions[i].correct == true) {
                     counter = counter + 1;
                 }
             }
