@@ -18,10 +18,14 @@ def index():
 
 class QuestionList(Resource):
     def get(self, question_number):
-        question_list = []
         questions_count = self.get_questions_count()
         questions_fromdb = self.get_questions_from_db()
         questions = self.get_questions(question_number, questions_count, questions_fromdb)
+        json_with_questions = self.create_json_from_questions(questions)
+        return json_with_questions
+
+    def create_json_from_questions(self, questions):
+        question_list = []
         for question in questions:
             question_list.append(self.add_answers(question))
         return json.dumps({"questions": question_list})

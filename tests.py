@@ -1,6 +1,8 @@
 import unittest
+import json
 from app.views import QuestionList, Check
 from app.models import Question, Answer
+
 
 class TestQuestionList(unittest.TestCase):
 
@@ -40,6 +42,14 @@ class TestQuestionList(unittest.TestCase):
         question_list = self.question_list.get_questions(20, (100,100), prepared_questions)
         self.assertEquals(len(question_list), 20)
         self.assertIsInstance(question_list[10], Question)
+
+    def test_create_json_from_questions(self):
+        prepared_questions = self.prepare_questions()
+        question_list = self.question_list.get_questions(10, (100,100), prepared_questions)
+        created_json = self.question_list.create_json_from_questions(question_list)
+        self.assertIsInstance(created_json, str)
+        json_dict = json.loads(created_json)
+        self.assertEquals(len(json_dict['questions']), 10)
 
 class TestCheck(unittest.TestCase):
 
