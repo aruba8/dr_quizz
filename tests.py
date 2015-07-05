@@ -20,6 +20,13 @@ class TestQuestionList(unittest.TestCase):
             questions_signed.append(q_signed)
         return questions_signed, questions_unsigned
 
+    def prepare_answers(self):
+        answers = []
+        for i in range(4):
+            answer = Answer(id=i, question_id=i, is_correct_answer=False, answer='This is answer '+str(i))
+            answers.append(answer)
+        return answers
+
     def test_define_qty(self):
         defined5 = self.question_list.define_qty(5)
         defined10 = self.question_list.define_qty(10)
@@ -50,6 +57,16 @@ class TestQuestionList(unittest.TestCase):
         self.assertIsInstance(created_json, str)
         json_dict = json.loads(created_json)
         self.assertEquals(len(json_dict['questions']), 10)
+
+    def test_prepare_questions(self):
+        prepared_questions = self.prepare_questions()
+        question_list = self.question_list.get_questions(10, (100,100), prepared_questions)
+        answers_from_db = self.prepare_answers()
+        question = self.question_list.prepare_questions(question_list[0], answers_from_db)
+        self.assertEquals(len(question), 3)
+        self.assertEquals(len(question['answers']), 4)
+        self.assertEquals(question['answers'][2]['answer'], 'This is answer 2')
+        self.assertEquals(question['answers'][2]['id'], 2)
 
 class TestCheck(unittest.TestCase):
 

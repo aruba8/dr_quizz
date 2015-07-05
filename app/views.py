@@ -27,11 +27,11 @@ class QuestionList(Resource):
     def create_json_from_questions(self, questions):
         question_list = []
         for question in questions:
-            question_list.append(self.add_answers(question))
+            answers_from_db = self.get_answers_by_question_id(question.id)
+            question_list.append(self.prepare_questions(question, answers_from_db))
         return json.dumps({"questions": question_list})
 
-    def add_answers(self, question):
-        answers_from_db = Answer.query.filter_by(question_id=question.id).all()
+    def prepare_questions(self, question, answers_from_db):
         answers = []
         for answer in answers_from_db:
             answers.append({"id": answer.id, "answer": answer.answer})
@@ -45,6 +45,9 @@ class QuestionList(Resource):
         question_to_return["answers"] = answers
 
         return question_to_return
+
+    def get_answers_by_question_id(self, question_id):
+        return Answer.query.filter_by(question_id=question_id).all()
 
     def get_questions(self, number, questions_count, questions_fromdb):
         signed_qty, usual_qty = self.define_qty(number)
