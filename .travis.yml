@@ -1,0 +1,21 @@
+language: python
+python:
+  - "2.7"
+# command to install dependencies
+addons:
+  postgresql: "9.3"
+
+env:
+  - DB_PORT_5432_TCP_ADDR=127.0.0.1
+  - DB_PORT_5432_TCP_PORT=5432
+
+install: "pip install -r requirements.txt"
+# command to run tests
+
+before_script:
+  - psql -c 'create database dr_quiz_db;' -U postgres
+  - psql -c 'create user dr_quiz_db with password 'dr_quiz_db';' -U postgres
+  - psql -c 'grant all privileges on database dr_quiz_db to dr_quiz_db;' -U postgres
+  - python run.py db migrate
+
+script: python tests.py
