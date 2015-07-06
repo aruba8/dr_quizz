@@ -5,10 +5,6 @@ python:
 addons:
   postgresql: "9.3"
 
-env:
-  - DB_PORT_5432_TCP_ADDR=127.0.0.1
-  - DB_PORT_5432_TCP_PORT=5432
-
 install: "pip install -r requirements.txt"
 # command to run tests
 
