@@ -4,7 +4,7 @@
 ### REST API:
 
 
-#### get questions:
+#### Get questions:
 
 `<number>` can be `5, 10, 20, 40`
 
@@ -52,7 +52,7 @@ Content-Type: application/json
 }
 ```
 
-#### check questions:
+#### Check questions:
 
 to check question you should add field `answer` with value of chosen answer id to every question, and send back post request as :
 
