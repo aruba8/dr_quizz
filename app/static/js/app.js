@@ -54,9 +54,8 @@
             var questions = $scope.questions;
             $http.post('/check', {result: questions})
                 .success(function (data) {
-                    var jsonData = angular.fromJson(data);
-                    $scope.questions = jsonData.result;
-                    $scope.numberOfCorrectAnswers = $scope.calculateCorrectAnswers(jsonData.result);
+                    $scope.questions = data.result;
+                    $scope.numberOfCorrectAnswers = $scope.calculateCorrectAnswers(data.result);
                 });
 
         };

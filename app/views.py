@@ -1,7 +1,5 @@
 import random
-import json
-
-from flask import request, send_file
+from flask import request, send_file, jsonify
 
 from flask_restful import Resource, reqparse
 
@@ -22,14 +20,14 @@ class QuestionList(Resource):
         questions_fromdb = self.get_questions_from_db()
         questions = self.get_questions(question_number, questions_count, questions_fromdb)
         json_with_questions = self.create_json_from_questions(questions)
-        return json_with_questions
+        return jsonify(json_with_questions)
 
     def create_json_from_questions(self, questions):
         question_list = []
         for question in questions:
             answers_from_db = self.get_answers_by_question_id(question.id)
             question_list.append(self.prepare_questions(question, answers_from_db))
-        return json.dumps({"questions": question_list})
+        return {"questions": question_list}
 
     def prepare_questions(self, question, answers_from_db):
         answers = []

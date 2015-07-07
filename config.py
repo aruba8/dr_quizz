@@ -2,9 +2,6 @@ import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-DEBUG = False
-TESTING = False
-
 DB_HOST = os.getenv('DB_PORT_5432_TCP_ADDR')
 DB_PORT = os.getenv('DB_PORT_5432_TCP_PORT')
 
