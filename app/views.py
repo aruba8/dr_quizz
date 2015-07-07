@@ -77,8 +77,10 @@ class QuestionList(Resource):
             signed_qty, usual_qty = 4, 6
         elif number == 20:
             signed_qty, usual_qty = 7, 13
+        elif number == 30:
+            signed_qty, usual_qty = 10, 20
         elif number == 40:
-            signed_qty, usual_qty = 10, 30
+            signed_qty, usual_qty = 12, 28
         return signed_qty, usual_qty
 
 

@@ -4,3 +4,4 @@ flask-restful
 flask-migrate
 psycopg2
 selenium
+cherrypy
