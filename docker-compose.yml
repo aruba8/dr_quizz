@@ -4,7 +4,7 @@ db:
     - "5432"
 web:
   build: .
-  command: python application/run.py runserver -h 0.0.0.0
+  command: python application/run_prod.py
 
   volumes:
     - .:/application
