@@ -54,9 +54,8 @@ class TestQuestionList(unittest.TestCase):
         prepared_questions = self.prepare_questions()
         question_list = self.question_list.get_questions(10, (100,100), prepared_questions)
         created_json = self.question_list.create_json_from_questions(question_list)
-        self.assertIsInstance(created_json, str)
-        json_dict = json.loads(created_json)
-        self.assertEquals(len(json_dict['questions']), 10)
+        self.assertIsInstance(created_json, dict)
+        self.assertEquals(len(created_json['questions']), 10)
 
     def test_prepare_questions(self):
         prepared_questions = self.prepare_questions()
