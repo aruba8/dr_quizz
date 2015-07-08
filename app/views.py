@@ -45,7 +45,7 @@ class QuestionList(Resource):
         return question_to_return
 
     def get_answers_by_question_id(self, question_id):
-        return Answer.query.filter_by(question_id=question_id).all()
+        return Answer.query.filter_by(question_id=question_id).order_by(Answer.id).all()
 
     def get_questions(self, number, questions_count, questions_fromdb):
         signed_qty, usual_qty = self.define_qty(number)

@@ -8,6 +8,9 @@ class Question(db.Model):
     sign_name = db.Column(db.String(length=100))
     question = db.Column(db.String(length=1000))
 
+    def __repr__(self):
+        return '<Question id=%r>' % self.id
+
 
 class Answer(db.Model):
     __tablename__ = 'answer'
@@ -15,3 +18,6 @@ class Answer(db.Model):
     question_id = db.Column(db.Integer, db.ForeignKey('question.id'))
     answer = db.Column(db.String(length=1000))
     is_correct_answer = db.Column(db.Boolean, default=False)
+
+    def __repr__(self):
+        return '<Answer id=%r>' % self.id
