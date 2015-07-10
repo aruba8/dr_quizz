@@ -11,6 +11,22 @@ li {
     list-style-type: lower-alpha;
 }
 
+li .radio label{
+    display: inline-block;
+    vertical-align: top;
+}
+
+label {
+    text-align: justify;
+}
+
+div.questions p {
+    font-weight: bold;
+    text-align: justify;
+    margin-top: 5px;
+    font-size: 1.1em;
+}
+
 .sign-img {
     margin-bottom: 25px;
     margin-right: 25px;
