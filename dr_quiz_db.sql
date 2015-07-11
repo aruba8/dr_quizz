@@ -1746,15 +1746,6 @@ ALTER TABLE ONLY answer
     ADD CONSTRAINT answer_question_id_fkey FOREIGN KEY (question_id) REFERENCES question(id);
 
 
---
--- Name: public; Type: ACL; Schema: -; Owner: erik
---
-
-REVOKE ALL ON SCHEMA public FROM PUBLIC;
-REVOKE ALL ON SCHEMA public FROM erik;
-GRANT ALL ON SCHEMA public TO erik;
-GRANT ALL ON SCHEMA public TO PUBLIC;
-
 
 --
 -- PostgreSQL database dump complete
