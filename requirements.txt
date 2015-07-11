@@ -2,6 +2,7 @@ flask
 flask-sqlalchemy
 flask-restful
 flask-migrate
+flask-testing
 psycopg2
 selenium
 cherrypy
