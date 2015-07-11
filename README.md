@@ -6,7 +6,7 @@
 
 #### Get questions:
 
-`<number>` can be `5, 10, 20, 40`
+`<number>` can be `5, 10, 20, 30, 40`
 
 request:
 ```HTTP
