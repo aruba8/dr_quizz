@@ -15,80 +15,91 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
 <script src="static/js/app.js"></script>
 
-<div class="container" role="main" ng-controller="FormController as formCtrl">
-    <div class="row">
-        <div class="col-md-8">
-            <div class="page-header">
-                <div class="container">
-                    <h2>Driver Quizzes</h2>
+<div class="content">
+    <div class="container" role="main" ng-controller="FormController as formCtrl">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="page-header" id="header">
+                    <div class="container">
+                        <h2>Driver Quizzes</h2>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8">
-            <form class="form-inline">
-                <fieldset>
-                    <div class="form-group col-md-4">
-                        <select id='select' class="form-control" ng-init="numberOfQuestions = formCtrl.opts[0].qty"
-                                ng-options="opt.qty as opt.name for opt in formCtrl.opts" ng-model='numberOfQuestions'>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <input type="button" class="btn btn-default" ng-show="!restartQuiz" value="Start Quiz"
-                               ng-click="formCtrl.getQuestions(numberOfQuestions)">
-                        <input type="button" class="btn btn-default" ng-show="restartQuiz" value="Restart Quiz"
-                               ng-click="formCtrl.getQuestions(numberOfQuestions)">
-                    </div>
-                    <div class="form-group">
-                        <span class="answer_count"> Result: {{ numberOfCorrectAnswers }}/{{ numberOfQuestions }} </span>
-                    </div>
-                </fieldset>
-            </form>
-        </div>
-    </div>
-    <div class="container-fluid">
         <div class="row">
             <div class="col-md-8">
-                <div class="questions" ng-repeat="question in questions" ng-if="questionsToShow">
-                    <div ng-class="{ 'panel panel-default' : question.correct === None,
+                <form class="form-inline">
+                    <fieldset>
+                        <div class="form-group col-md-4">
+                            <select id='select' class="form-control" ng-init="numberOfQuestions = formCtrl.opts[0].qty"
+                                    ng-options="opt.qty as opt.name for opt in formCtrl.opts"
+                                    ng-model='numberOfQuestions'>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="button" class="btn btn-default" ng-show="!restartQuiz" value="Start Quiz"
+                                   ng-click="formCtrl.getQuestions(numberOfQuestions)">
+                            <input type="button" class="btn btn-default" ng-show="restartQuiz" value="Restart Quiz"
+                                   ng-click="formCtrl.getQuestions(numberOfQuestions)">
+                        </div>
+                        <div class="form-group">
+                            <span class="answer_count"> Result: {{ numberOfCorrectAnswers }}/{{ numberOfQuestions }} </span>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="questions" ng-repeat="question in questions" ng-if="questionsToShow">
+                        <div ng-class="{ 'panel panel-default' : question.correct === None,
                                      'panel panel-success' : question.correct === true,
                                      'panel panel-danger' : question.correct === false}">
-                        <div class="panel-heading">
-                            <h3>Question {{ $index+1}}</h3>
-                        </div>
-                        <div class="panel-body">
-                            <div class="question">
-                                <p>{{ question.question }}</p>
+                            <div class="panel-heading">
+                                <h3>Question {{ $index+1}}</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="question">
+                                    <p>{{ question.question }}</p>
 
-                                <div class="sign-img">
-                                    <img ng-if="question.signed" class="img-thumbnail"
-                                         ng-src="static/images/signs/{{ question.sign }}">
-                                </div>
-                                <ul>
-                                    <li ng-repeat="answer in question.answers">
-                                        <div class="radio">
-                                            <label>
-                                                <input ng-disabled="inputDisabled" type="radio"
-                                                       name="answer{{ answer.id }}"
-                                                       ng-model="question.answer"
-                                                       value="{{ answer.id }}"> {{ answer.answer }}
-                                            </label>
+                                    <div class="sign-img">
+                                        <img ng-if="question.signed" class="img-thumbnail"
+                                             ng-src="static/images/signs/{{ question.sign }}">
+                                    </div>
+                                    <ul>
+                                        <li ng-repeat="answer in question.answers">
+                                            <div class="radio">
+                                                <label>
+                                                    <input ng-disabled="inputDisabled" type="radio"
+                                                           name="answer{{ answer.id }}"
+                                                           ng-model="question.answer"
+                                                           value="{{ answer.id }}"> {{ answer.answer }}
+                                                </label>
                                         <span ng-show="inputDisabled && answer.id == question.correct_answer"
                                               class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                                        </div>
-                                    </li>
-                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
                             </div>
-
-
                         </div>
                     </div>
+                    <div class="buttons form-inline">
+                        <a class="btn btn-default form-control" ng-show="checkAllowed" ng-disabled="checkDisabled"
+                           ng-click="formCtrl.check()">Check answers</a>
+                    </div>
                 </div>
-                <div class="buttons form-inline">
-                    <a class="btn btn-default form-control" ng-show="checkAllowed" ng-disabled="checkDisabled"
-                       ng-click="formCtrl.check()">Check answers</a>
-                </div>
+            </div>
+        </div>
+        <div id="overlay" ng-show="showDialog">
+            <div>
+                <p>{{ phrase }}</p>
+
+                <p>Your score: {{ numberOfCorrectAnswers }}/{{ numberOfQuestions }} !</p>
+                <button class="btn btn-success" ng-click="formCtrl.closeDialog()">Got it!</button>
             </div>
         </div>
     </div>
