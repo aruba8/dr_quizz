@@ -92,9 +92,14 @@
                 $scope.phrase = 'Good!';
 
             } else if (result < 0.9) {
-                $scope.phrase = 'Ok. I think you can better. Try again!';
+                $scope.phrase = 'Ok. I think you can better than this. Try again!';
             }
-        }
+        };
+
+        $scope.init = function () {
+            var date = new Date();
+            $scope.currentYear = date.getFullYear();
+        };
 
     }]);
 

@@ -1,8 +1,8 @@
 body {
     margin: 0 auto;
-    width: 800px;
-    height: 100%;
+    width: 768px;
     padding: 0;
+    overflow-x: hidden;
 }
 
 .questions {
@@ -46,7 +46,7 @@ div.questions p {
 
 #overlay {
     visibility: visible;
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     width: 100%;
@@ -59,18 +59,53 @@ div.questions p {
 
 #overlay div {
     position: relative;
-    width: 400px;
+    width: 500px;
+    height: 300px;
     margin: 100px auto;
     background-color: #fff;
     border: 1px solid #000;
     padding: 15px;
     text-align: center;
+    font-size: 1.2em;
+}
+
+#overlay div p.phrase {
+    margin-top: 45px;
+}
+
+#overlay p.score {
+    font-size: 1.3em;
+    margin-top: 75px;
+
 }
 
 .content {
-    margin-bottom: 25px;
+    margin-bottom: 65px;
+    height: auto;
 }
 
-body{
-    overflow-x:hidden;
+.footer {
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 10px;
+    background: #39b54a;
+    color: #fff;
+    width: 100%;
+}
+
+.footer a:visited, .footer a:active, .footer a, .footer a:link {
+    color: #fff;
+    text-decoration: none;
+}
+
+#year, #version {
+    display: inline;
+}
+
+#version {
+    position: absolute;
+    text-align: right;
+    right: 5px;
 }

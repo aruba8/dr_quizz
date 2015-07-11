@@ -15,8 +15,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
 <script src="static/js/app.js"></script>
 
-<div class="content">
-    <div class="container" role="main" ng-controller="FormController as formCtrl">
+<div class="content" ng-controller="FormController as formCtrl" data-ng-init="init()">
+    <div class="container" role="main">
         <div class="row">
             <div class="col-md-8">
                 <div class="page-header" id="header">
@@ -96,13 +96,16 @@
         </div>
         <div id="overlay" ng-show="showDialog">
             <div>
-                <p>{{ phrase }}</p>
+                <p class="phrase">{{ phrase }}</p>
 
-                <p>Your score: {{ numberOfCorrectAnswers }}/{{ numberOfQuestions }} !</p>
+                <p class="score">Your score: {{ numberOfCorrectAnswers }}/{{ numberOfQuestions }} !</p>
                 <button class="btn btn-success" ng-click="formCtrl.closeDialog()">Got it!</button>
             </div>
         </div>
     </div>
+<div class="footer">
+    Copyright <div id="year">{{ currentYear }}</div> | <a target="_blank" href="https://github.com/biomaks/dr_quizz" >biomaks</a> <div id="version">version: 0.03</div>
+</div>
 </div>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
