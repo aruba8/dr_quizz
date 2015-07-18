@@ -72,6 +72,7 @@ div.questions p {
 #overlay div p.phrase {
     margin-top: 45px;
 }
+
 #overlay div img {
     margin-top: 45px;
 }
@@ -116,7 +117,8 @@ div.questions p {
 .questions-loading {
     text-align: center;
 }
-.questions-loading img{
+
+.questions-loading img {
 
     margin: 35px 35px;
 }

@@ -1,4 +1,5 @@
 import random
+
 from flask import request, send_file, jsonify
 
 from flask_restful import Resource, reqparse
@@ -79,6 +80,8 @@ class QuestionList(Resource):
             signed_qty, usual_qty = 7, 13
         elif number == 30:
             signed_qty, usual_qty = 10, 20
+        elif number == 35:
+            signed_qty, usual_qty = 11, 24
         elif number == 40:
             signed_qty, usual_qty = 12, 28
         return signed_qty, usual_qty

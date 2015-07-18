@@ -65,11 +65,13 @@ class TestQuestionList(unittest.TestCase):
         defined10 = self.question_list.define_qty(10)
         defined20 = self.question_list.define_qty(20)
         defined30 = self.question_list.define_qty(30)
+        defined35 = self.question_list.define_qty(35)
         defined40 = self.question_list.define_qty(40)
         self.assertTrue(defined5[0] == 1 and defined5[1] == 4)
         self.assertTrue(defined10[0] == 4 and defined10[1] == 6)
         self.assertTrue(defined20[0] == 7 and defined20[1] == 13)
         self.assertTrue(defined30[0] == 10 and defined30[1] == 20)
+        self.assertTrue(defined35[0] == 11 and defined35[1] == 24)
         self.assertTrue(defined40[0] == 12 and defined40[1] == 28)
 
     def test_generate_random_numbers(self):
@@ -134,6 +136,7 @@ class TestServerLive(LiveServerTestCase):
     def create_app(self):
         self.application = app
         app.config['TESTING'] = True
+        app.config['LIVESERVER_PORT'] = 8998
         return self.application
 
     def test_server_live_and_run(self):

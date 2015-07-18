@@ -31,6 +31,9 @@
             qty: 30,
             name: '30 questions'
         }, {
+            qty: 35,
+            name: '35 questions'
+        }, {
             qty: 40,
             name: '40 questions'
         }];
