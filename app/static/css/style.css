@@ -72,6 +72,9 @@ div.questions p {
 #overlay div p.phrase {
     margin-top: 45px;
 }
+#overlay div img {
+    margin-top: 45px;
+}
 
 #overlay p.score {
     font-size: 1.3em;
@@ -108,4 +111,12 @@ div.questions p {
     position: absolute;
     text-align: right;
     right: 5px;
+}
+
+.questions-loading {
+    text-align: center;
+}
+.questions-loading img{
+
+    margin: 35px 35px;
 }

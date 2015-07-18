@@ -14,6 +14,8 @@
         $scope.numberOfCorrectAnswers = 0;
         $scope.showDialog = false;
         $scope.phrase = null;
+        $scope.questionsLoading = false;
+        $scope.resultsLoading = true;
 
 
         this.opts = [{
@@ -41,11 +43,17 @@
             $scope.numberOfCorrectAnswers = 0;
             $scope.showDialog = false;
             $scope.phrase = null;
+            $scope.questionsLoading = false;
+            $scope.resultsLoading = true;
+
         }
 
         this.getQuestions = function (numberOfQuestions) {
             $scope.restartQuiz = true;
             $scope.checkAllowed = true;
+            $scope.questionsLoading = true;
+            $scope.questionsToShow = false;
+
             $http
                 .get('/questions/' + numberOfQuestions)
                 .success(function (data) {
@@ -53,6 +61,7 @@
                     var jsonData = angular.fromJson(data);
                     $scope.questions = jsonData.questions;
                     $scope.questionsToShow = true;
+                    $scope.questionsLoading = false;
                 });
         };
 
@@ -65,6 +74,8 @@
                     $scope.questions = data.result;
                     $scope.numberOfCorrectAnswers = $scope.calculateCorrectAnswers(data.result);
                     $scope.setPhrase();
+                    $scope.resultsLoading = false;
+
                 });
             $anchorScroll();
             $scope.showDialog = true;

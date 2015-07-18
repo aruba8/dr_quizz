@@ -52,6 +52,9 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-8">
+                    <div class="questions-loading" ng-show="questionsLoading">
+                        <img ng-src="static/images/ajax-loader.gif">
+                    </div>
                     <div class="questions" ng-repeat="question in questions" ng-if="questionsToShow">
                         <div ng-class="{ 'panel panel-default' : question.correct === None,
                                      'panel panel-success' : question.correct === true,
@@ -95,11 +98,15 @@
             </div>
         </div>
         <div id="overlay" ng-show="showDialog">
-            <div>
+            <div ng-show="!resultsLoading">
                 <p class="phrase">{{ phrase }}</p>
 
                 <p class="score">Your score: {{ numberOfCorrectAnswers }}/{{ numberOfQuestions }} !</p>
                 <button class="btn btn-success" ng-click="formCtrl.closeDialog()">Got it!</button>
+            </div>
+            <div ng-show="resultsLoading">
+                <img ng-src="static/images/loading.gif">
+
             </div>
         </div>
     </div>
