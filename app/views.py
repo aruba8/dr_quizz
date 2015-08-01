@@ -1,6 +1,6 @@
 import random
 
-from flask import request, send_file, jsonify
+from flask import request, jsonify, render_template
 
 from flask_restful import Resource, reqparse
 
@@ -12,7 +12,7 @@ from app.models import Question, Answer
 @app.route('/index', methods=['GET'])
 @app.route('/index.html', methods=['GET'])
 def index():
-    return send_file('templates/index.html')
+    return render_template('index.html')
 
 
 class QuestionList(Resource):

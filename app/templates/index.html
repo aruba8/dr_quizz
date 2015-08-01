@@ -43,7 +43,7 @@
                                    ng-click="formCtrl.getQuestions(numberOfQuestions)">
                         </div>
                         <div class="form-group">
-                            <span class="answer_count"> Result: {{ numberOfCorrectAnswers }}/{{ numberOfQuestions }} </span>
+                            <span class="answer_count"> Result: {% raw %}{{ numberOfCorrectAnswers }}/{{ numberOfQuestions }} {% endraw %} </span>
                         </div>
                     </fieldset>
                 </form>
@@ -60,24 +60,26 @@
                                      'panel panel-success' : question.correct === true,
                                      'panel panel-danger' : question.correct === false}">
                             <div class="panel-heading">
-                                <h3>Question {{ $index+1}}</h3>
+                                <h3>Question {% raw %}{{ $index+1}}{% endraw %}</h3>
                             </div>
                             <div class="panel-body">
                                 <div class="question">
-                                    <p>{{ question.question }}</p>
+                                    <p>{% raw %}{{ question.question }}{% endraw %}</p>
 
                                     <div class="sign-img">
                                         <img ng-if="question.signed" class="img-thumbnail"
-                                             ng-src="static/images/signs/{{ question.sign }}">
+                                             {% raw %}ng-src="static/images/signs/{{ question.sign }}"{% endraw %}>
                                     </div>
                                     <ul>
                                         <li ng-repeat="answer in question.answers">
                                             <div class="radio">
                                                 <label>
+                                                    {% raw %}
                                                     <input ng-disabled="inputDisabled" type="radio"
                                                            name="answer{{ answer.id }}"
                                                            ng-model="question.answer"
                                                            value="{{ answer.id }}"> {{ answer.answer }}
+                                                    {% endraw %}
                                                 </label>
                                         <span ng-show="inputDisabled && answer.id == question.correct_answer"
                                               class="glyphicon glyphicon-ok" aria-hidden="true"></span>
@@ -99,9 +101,9 @@
         </div>
         <div id="overlay" ng-show="showDialog">
             <div ng-show="!resultsLoading">
-                <p class="phrase">{{ phrase }}</p>
+                <p class="phrase">{% raw %}{{ phrase }}{% endraw %}</p>
 
-                <p class="score">Your score: {{ numberOfCorrectAnswers }}/{{ numberOfQuestions }} !</p>
+                <p class="score">Your score: {% raw %}{{ numberOfCorrectAnswers }}/{{ numberOfQuestions }} !{% endraw %}</p>
                 <button class="btn btn-success" ng-click="formCtrl.closeDialog()">Got it!</button>
             </div>
             <div ng-show="resultsLoading">
@@ -112,7 +114,7 @@
     </div>
     <div class="footer">
         Copyright
-        <div id="year">{{ currentYear }}</div>
+        <div id="year">{% raw %}{{ currentYear }}{% endraw %}</div>
         | <a target="_blank" href="https://github.com/biomaks/dr_quizz">biomaks</a>
 
         <div id="version">version: 0.04</div>
