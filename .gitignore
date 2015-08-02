@@ -62,4 +62,6 @@ target/
 signs/
 .idea/
 
+/node_modules
+config.py
 

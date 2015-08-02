@@ -3,16 +3,16 @@
 <head lang="en">
     <meta charset="UTF-8">
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="http://yastatic.net/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="static/css/style.css">
 
     <!-- Latest compiled and minified JavaScript -->
-    <title></title>
+    <title>Driver Quizzes</title>
 </head>
 <body>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+<script src="static/js/angular.min.js"></script>
 <script src="static/js/app.js"></script>
 
 <div class="content" ng-controller="FormController as formCtrl" data-ng-init="init()">
@@ -103,7 +103,8 @@
             <div ng-show="!resultsLoading">
                 <p class="phrase">{% raw %}{{ phrase }}{% endraw %}</p>
 
-                <p class="score">Your score: {% raw %}{{ numberOfCorrectAnswers }}/{{ numberOfQuestions }} !{% endraw %}</p>
+                <p class="score">Your score: {% raw %}{{ numberOfCorrectAnswers }}/{{ numberOfQuestions }}
+                    !{% endraw %}</p>
                 <button class="btn btn-success" ng-click="formCtrl.closeDialog()">Got it!</button>
             </div>
             <div ng-show="resultsLoading">
@@ -120,42 +121,44 @@
         <div id="version">version: 0.04</div>
     </div>
 </div>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function (d, w, c) {
-        (w[c] = w[c] || []).push(function () {
-            try {
-                w.yaCounter31259383 = new Ya.Metrika({
-                    id: 31259383,
-                    clickmap: true,
-                    trackLinks: true,
-                    accurateTrackBounce: true,
-                    webvisor: true,
-                    trackHash: true
-                });
-            } catch (e) {
+{% if not config.DEV_MODE %}
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function () {
+                try {
+                    w.yaCounter31259383 = new Ya.Metrika({
+                        id: 31259383,
+                        clickmap: true,
+                        trackLinks: true,
+                        accurateTrackBounce: true,
+                        webvisor: true,
+                        trackHash: true
+                    });
+                } catch (e) {
+                }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                    s = d.createElement("script"),
+                    f = function () {
+                        n.parentNode.insertBefore(s, n);
+                    };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else {
+                f();
             }
-        });
-
-        var n = d.getElementsByTagName("script")[0],
-                s = d.createElement("script"),
-                f = function () {
-                    n.parentNode.insertBefore(s, n);
-                };
-        s.type = "text/javascript";
-        s.async = true;
-        s.src = "https://mc.yandex.ru/metrika/watch.js";
-
-        if (w.opera == "[object Opera]") {
-            d.addEventListener("DOMContentLoaded", f, false);
-        } else {
-            f();
-        }
-    })(document, window, "yandex_metrika_callbacks");
-</script>
-<noscript>
-    <div><img src="https://mc.yandex.ru/watch/31259383" style="position:absolute; left:-9999px;" alt=""/></div>
-</noscript>
-<!-- /Yandex.Metrika counter -->
+        })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/31259383" style="position:absolute; left:-9999px;" alt=""/></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+{% endif %}
 </body>
 </html>
