@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/biomaks/dr_quizz.svg?branch=master)](https://travis-ci.org/biomaks/dr_quizz)
-# dr_quizz v0.04
+# dr_quizz v0.05
 
 ### REST API:
 

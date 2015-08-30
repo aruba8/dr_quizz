@@ -1,7 +1,7 @@
 {
   "name": "dr_quizz",
-  "version": "0.0.5",
-  "description": "Driver  quizzes",
+  "version": "0.05",
+  "description": "Driver quizzes",
   "dependencies": {
     "browser-sync": "^2.2.3",
     "gulp": "^3.8.11",
