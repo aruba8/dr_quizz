@@ -59,9 +59,10 @@ docs/_build/
 # PyBuilder
 target/
 
-signs/
+#frontend/src/images/signs/
 .idea/
 
-/node_modules
+node_modules
+bower_components
 
 config.py
