@@ -15,6 +15,11 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/donate', methods=['GET'])
+def donate():
+    return render_template('donate.html')
+
+
 class QuestionList(Resource):
     def get(self, question_number):
         questions_count = self.get_questions_count()

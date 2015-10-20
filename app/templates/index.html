@@ -1,160 +1,106 @@
-<!DOCTYPE html>
-<html ng-app='drqApp'>
-<head lang="en">
-    <meta charset="UTF-8">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="static/css/main.css">
+{% extends "base.html" %}
+{% block content %}
+    <body ng-app='drqApp'>
+    <script src="static/js/main.js"></script>
 
-    <!-- Latest compiled and minified JavaScript -->
-    <title>Driver Quizzes</title>
-</head>
-<body>
-<script src="static/js/main.js"></script>
-
-<div class="content" ng-controller="FormController as formCtrl" data-ng-init="init()">
-    <div class="container" role="main">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="page-header" id="header">
-                    <div class="container">
-                        <h2>Driver Quizzes</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-8">
-                <form class="form-inline">
-                    <fieldset>
-                        <div class="form-group col-md-4">
-                            <select id='select' class="form-control" ng-init="numberOfQuestions = formCtrl.opts[0].qty"
-                                    ng-options="opt.qty as opt.name for opt in formCtrl.opts"
-                                    ng-model='numberOfQuestions'>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <input type="button" class="btn btn-default" ng-show="!restartQuiz" value="Start Quiz"
-                                   ng-click="formCtrl.getQuestions(numberOfQuestions)">
-                            <input type="button" class="btn btn-default" ng-show="restartQuiz" value="Restart Quiz"
-                                   ng-click="formCtrl.getQuestions(numberOfQuestions)">
-                        </div>
-                        <div class="form-group">
-                            <span class="answer_count"> Result: {% raw %}{{ numberOfCorrectAnswers }}/{{ numberOfQuestions }} {% endraw %} </span>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
-        </div>
-        <div class="container-fluid">
+    <div class="content" ng-controller="FormController as formCtrl" data-ng-init="init()">
+        <div class="container" role="main">
             <div class="row">
                 <div class="col-md-8">
-                    <div class="questions-loading" ng-show="questionsLoading">
-                        <img ng-src="static/images/ajax-loader.gif">
-                    </div>
-                    <div class="questions" ng-repeat="question in questions" ng-if="questionsToShow">
-                        <div ng-class="{ 'panel panel-default' : question.correct === None,
-                                     'panel panel-success' : question.correct === true,
-                                     'panel panel-danger' : question.correct === false}">
-                            <div class="panel-heading">
-                                <h3>Question {% raw %}{{ $index+1}}{% endraw %}</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="question">
-                                    <p>{% raw %}{{ question.question }}{% endraw %}</p>
-
-                                    <div class="sign-img">
-                                        <img ng-if="question.signed" class="img-thumbnail"
-                                             {% raw %}ng-src="static/images/signs/{{ question.sign }}"{% endraw %}>
-                                    </div>
-                                    <ul>
-                                        <li ng-repeat="answer in question.answers">
-                                            <div class="radio">
-                                                <label>
-                                                    {% raw %}
-                                                    <input ng-disabled="inputDisabled" type="radio"
-                                                           name="answer{{ answer.id }}"
-                                                           ng-model="question.answer"
-                                                           value="{{ answer.id }}"> {{ answer.answer }}
-                                                    {% endraw %}
-                                                </label>
-                                        <span ng-show="inputDisabled && answer.id == question.correct_answer"
-                                              class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-
-
-                            </div>
+                    <div class="page-header" id="header">
+                        <div class="container">
+                            <h2>Driver Quizzes</h2>
                         </div>
-                    </div>
-                    <div class="buttons form-inline">
-                        <a class="btn btn-default form-control" ng-show="checkAllowed" ng-disabled="checkDisabled"
-                           ng-click="formCtrl.check()">Check answers</a>
                     </div>
                 </div>
             </div>
-        </div>
-        <div id="overlay" ng-show="showDialog">
-            <div ng-show="!resultsLoading">
-                <p class="phrase">{% raw %}{{ phrase }}{% endraw %}</p>
-
-                <p class="score">Your score: {% raw %}{{ numberOfCorrectAnswers }}/{{ numberOfQuestions }}
-                    !{% endraw %}</p>
-                <button class="btn btn-success" ng-click="formCtrl.closeDialog()">Got it!</button>
+            <div class="row">
+                <div class="col-md-8">
+                    <form class="form-inline">
+                        <fieldset>
+                            <div class="form-group col-md-4">
+                                <select id='select' class="form-control"
+                                        ng-init="numberOfQuestions = formCtrl.opts[0].qty"
+                                        ng-options="opt.qty as opt.name for opt in formCtrl.opts"
+                                        ng-model='numberOfQuestions'>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="button" class="btn btn-default" ng-show="!restartQuiz" value="Start Quiz"
+                                       ng-click="formCtrl.getQuestions(numberOfQuestions)">
+                                <input type="button" class="btn btn-default" ng-show="restartQuiz" value="Restart Quiz"
+                                       ng-click="formCtrl.getQuestions(numberOfQuestions)">
+                            </div>
+                            <div class="form-group">
+                                <span class="answer_count"> Result: {% raw %}{{ numberOfCorrectAnswers }}/{{ numberOfQuestions }} {% endraw %} </span>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
             </div>
-            <div ng-show="resultsLoading">
-                <img ng-src="static/images/loading.gif">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="questions-loading" ng-show="questionsLoading">
+                            <img ng-src="static/images/ajax-loader.gif">
+                        </div>
+                        <div class="questions" ng-repeat="question in questions" ng-if="questionsToShow">
+                            <div ng-class="{ 'panel panel-default' : question.correct === None,
+                                     'panel panel-success' : question.correct === true,
+                                     'panel panel-danger' : question.correct === false}">
+                                <div class="panel-heading">
+                                    <h3>Question {% raw %}{{ $index+1}}{% endraw %}</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="question">
+                                        <p>{% raw %}{{ question.question }}{% endraw %}</p>
 
+                                        <div class="sign-img">
+                                            <img ng-if="question.signed" class="img-thumbnail"
+                                                 {% raw %}ng-src="static/images/signs/{{ question.sign }}"{% endraw %}>
+                                        </div>
+                                        <ul>
+                                            <li ng-repeat="answer in question.answers">
+                                                <div class="radio">
+                                                    <label>
+                                                        {% raw %}
+                                                        <input ng-disabled="inputDisabled" type="radio"
+                                                               name="answer{{ answer.id }}"
+                                                               ng-model="question.answer"
+                                                               value="{{ answer.id }}"> {{ answer.answer }}
+                                                        {% endraw %}
+                                                    </label>
+                                        <span ng-show="inputDisabled && answer.id == question.correct_answer"
+                                              class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="buttons form-inline">
+                            <a class="btn btn-default form-control" ng-show="checkAllowed" ng-disabled="checkDisabled"
+                               ng-click="formCtrl.check()">Check answers</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="overlay" ng-show="showDialog">
+                <div ng-show="!resultsLoading">
+                    <p class="phrase">{% raw %}{{ phrase }}{% endraw %}</p>
+
+                    <p class="score">Your score: {% raw %}{{ numberOfCorrectAnswers }}/{{ numberOfQuestions }}
+                        !{% endraw %}</p>
+                    <button class="btn btn-success" ng-click="formCtrl.closeDialog()">Got it!</button>
+                </div>
+                <div ng-show="resultsLoading">
+                    <img ng-src="static/images/loading.gif">
+
+                </div>
             </div>
         </div>
     </div>
-    <div class="footer">
-        Copyright
-        <div id="year">{% raw %}{{ currentYear }}{% endraw %}</div>
-        | <a target="_blank" href="https://github.com/biomaks/dr_quizz">biomaks</a>
-
-        <div id="version">version: 0.05</div>
-    </div>
-</div>
-{% if not config.DEV_MODE %}
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-        (function (d, w, c) {
-            (w[c] = w[c] || []).push(function () {
-                try {
-                    w.yaCounter31259383 = new Ya.Metrika({
-                        id: 31259383,
-                        clickmap: true,
-                        trackLinks: true,
-                        accurateTrackBounce: true,
-                        webvisor: true,
-                        trackHash: true
-                    });
-                } catch (e) {
-                }
-            });
-
-            var n = d.getElementsByTagName("script")[0],
-                    s = d.createElement("script"),
-                    f = function () {
-                        n.parentNode.insertBefore(s, n);
-                    };
-            s.type = "text/javascript";
-            s.async = true;
-            s.src = "https://mc.yandex.ru/metrika/watch.js";
-
-            if (w.opera == "[object Opera]") {
-                d.addEventListener("DOMContentLoaded", f, false);
-            } else {
-                f();
-            }
-        })(document, window, "yandex_metrika_callbacks");
-    </script>
-    <noscript>
-        <div><img src="https://mc.yandex.ru/watch/31259383" style="position:absolute; left:-9999px;" alt=""/></div>
-    </noscript>
-    <!-- /Yandex.Metrika counter -->
-{% endif %}
-</body>
-</html>
+{% endblock %}
