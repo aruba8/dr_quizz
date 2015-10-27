@@ -1,6 +1,6 @@
 {
   "name": "dr_quizz",
-  "version": "0.05",
+  "version": "v0.0.5",
   "description": "Driver quizzes",
   "dependencies": {
     "browser-sync": "^2.2.3",
@@ -19,5 +19,9 @@
     "imagemin-gifsicle": "4.2.0 "
   },
   "author": "Erik Khalimov <biomaks@gmail.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "private": true,
+  "devDependencies": {
+    "gulp-sass": "^2.0.4"
+  }
 }

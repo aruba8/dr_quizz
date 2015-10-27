@@ -133,3 +133,25 @@ Content-Type: application/json
 
 
 
+###For frontend development:
+
+in `frontend` directory:
+
+* `npm install`
+* `bower i`
+* `gulp watch`
+
+###Possible issues:
+
+
+If your node version is 4 and you are using gulp-sass, then try
+
+```
+npm uninstall --save-dev gulp-sass
+
+npm install --save-dev gulp-sass@2
+```
+
+
+
+

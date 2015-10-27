@@ -92,6 +92,11 @@
                 <div ng-show="!resultsLoading">
                     <p class="phrase">{% raw %}{{ phrase }}{% endraw %}</p>
 
+                    <p class="ad">If you like my service and want to support me, I would be glad if you donate some
+                        money using the link below. I will use it to work even harder on this project and also to
+                        maintain it. </p>
+                    <a href="https://www.paypal.me/khalimov">Support!</a>
+
                     <p class="score">Your score: {% raw %}{{ numberOfCorrectAnswers }}/{{ numberOfQuestions }}
                         !{% endraw %}</p>
                     <button class="btn btn-success" ng-click="formCtrl.closeDialog()">Got it!</button>
