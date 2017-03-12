@@ -152,6 +152,9 @@ npm uninstall --save-dev gulp-sass
 npm install --save-dev gulp-sass@2
 ```
 
+###To run container
+`docker run -d --name dr_quizz -p 5000:5000 biomaks/dr_quizz python run_prod.py`
+
 
 
 
